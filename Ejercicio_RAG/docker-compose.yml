@@ -1,0 +1,33 @@
+services:
+
+  app:
+    build: .
+    container_name: rag_app
+    env_file:
+      - .env
+    volumes:
+      - ./documentos:/app/documentos:ro
+      - ./app:/app/app
+      - model_cache:/root/.cache/huggingface
+    depends_on:
+      - chroma
+    networks:
+      - rag_network
+
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: rag_chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    networks:
+      - rag_network
+
+volumes:
+  chroma_data:
+  model_cache:
+
+networks:
+  rag_network:
+    driver: bridge

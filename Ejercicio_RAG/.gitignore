@@ -1,0 +1,27 @@
+
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Datos locales
+database/
+*.sqlite3
+
+# Caché de modelos
+.cache/
+model_cache/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/

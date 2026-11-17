@@ -2,5 +2,5 @@ chromadb
 sentence-transformers
 pypdf
 python-dotenv
-google-gemini
+google-genai
 groq
